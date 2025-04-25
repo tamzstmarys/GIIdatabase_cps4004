@@ -20,3 +20,8 @@ INSERT INTO Claim (policy_id, date, type, status, description)
 VALUES (?, '2025-04-01', 'Accident', 'Rear end collision on the highway.'
 """, (policy_id,))
 claim_id = cursor.lastrowid
+
+cursor.execute("""
+INSERT INTO Incident (claim_id, date, location, report)
+VALUES (?, '2024-28-12', 'Kennington', 'Accident occurred at junction, no injuries.')
+""", (claim_id,))
