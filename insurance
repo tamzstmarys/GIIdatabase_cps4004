@@ -22,3 +22,11 @@ CREATE TABLE Claim (
     status TEXT,
     FOREIGN KEY (policy_id) REFERENCES Policy(policy_id)
 );
+
+CREATE TABLE Payment (
+    payment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    claim_id INTEGER,
+    amount REAL,
+    date TEXT,
+    FOREIGN KEY (claim_id) REFERENCES Claim(claim_id)
+);
