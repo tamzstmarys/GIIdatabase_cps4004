@@ -4,3 +4,11 @@ CREATE TABLE Customer (
     email TEXT,
     telephone TEXT
 );
+
+CREATE TABLE Policy (
+    policy_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_id INTEGER,
+    premium_amount REAL,
+    coverage_details TEXT,
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+);
