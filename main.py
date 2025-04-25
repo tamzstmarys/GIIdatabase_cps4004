@@ -30,3 +30,8 @@ cursor.execute("""
 INSERT INTO Payment (claim_id, amount, date)
 VALUES (?, 120.50, '04/02/2025')
 """, (claim_id,))
+
+conn.commit()
+conn.close()
+
+print("Your sample data has been entered successfully.")
