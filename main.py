@@ -17,11 +17,16 @@ policy_id = cursor.lastrowid
 
 cursor.execute("""
 INSERT INTO Claim (policy_id, date, type, status, description)
-VALUES (?, '2025-04-01', 'Accident', 'Rear end collision on the highway.'
+VALUES (?, '04/01/2025', 'Accident', 'Rear end collision on the highway.'
 """, (policy_id,))
 claim_id = cursor.lastrowid
 
 cursor.execute("""
 INSERT INTO Incident (claim_id, date, location, report)
-VALUES (?, '2024-28-12', 'Kennington', 'Accident occurred at junction, no injuries.')
+VALUES (?, '28/12/2005', 'Kennington', 'Accident occurred at junction, no injuries.')
+""", (claim_id,))
+
+cursor.execute("""
+INSERT INTO Payment (claim_id, amount, date)
+VALUES (?, 120.50, '04/02/2025')
 """, (claim_id,))
