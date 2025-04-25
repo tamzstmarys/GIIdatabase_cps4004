@@ -5,8 +5,8 @@ cursor = conn.cursor()
 
 customer_id = cursor.lastrowid
 cursor.execute("""
-INSERT INTO Customer (name, telephone, email)
-VALUES ('Tahmid Miah', 'tamz@outlook.com', '440252525')
+INSERT INTO Customer (name, phone, email)
+VALUES ('Tahmid Miah', '440252525', 'tamz@outlook.com')
 """)
 
 cursor.execute("""
@@ -17,7 +17,7 @@ policy_id = cursor.lastrowid
 
 cursor.execute("""
 INSERT INTO Claim (policy_id, date, type, status, description)
-VALUES (?, '04/01/2025', 'Accident', 'Rear end collision on the highway.'
+VALUES (?, '04/01/2025', 'Accident', 'Processing', Rear end collision on the highway')
 """, (policy_id,))
 claim_id = cursor.lastrowid
 
