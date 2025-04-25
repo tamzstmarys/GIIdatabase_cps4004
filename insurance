@@ -30,3 +30,13 @@ CREATE TABLE Payment (
     date TEXT,
     FOREIGN KEY (claim_id) REFERENCES Claim(claim_id)
 );
+
+
+CREATE TABLE Incident (
+    incident_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    claim_id INTEGER,
+    location TEXT,
+    date TEXT,
+    report TEXT,
+    FOREIGN KEY (claim_id) REFERENCES Claim(claim_id)
+);
