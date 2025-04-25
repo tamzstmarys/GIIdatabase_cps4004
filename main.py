@@ -8,3 +8,9 @@ cursor.execute("""
 INSERT INTO Customer (name, telephone, email)
 VALUES ('Tahmid Miah', 'tamz@outlook.com', '440252525')
 """)
+
+cursor.execute("""
+INSERT INTO Policy (customer_id, premium_amount, coverage_details)
+VALUES (?, ?, ?)
+""", (customer_id, 169.69, 'Comprehensive auto insurance'))
+policy_id = cursor.lastrowid
