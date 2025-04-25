@@ -12,3 +12,13 @@ CREATE TABLE Policy (
     coverage_details TEXT,
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
+
+CREATE TABLE Claim (
+    claim_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    policy_id INTEGER,
+    type TEXT,
+    date TEXT,
+    description TEXT,
+    status TEXT,
+    FOREIGN KEY (policy_id) REFERENCES Policy(policy_id)
+);
