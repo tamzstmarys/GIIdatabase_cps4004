@@ -57,9 +57,14 @@ CREATE TABLE IF NOT EXISTS Payment (
 
 cursor.execute("""
 INSERT INTO Customer (name, phone, email)
-VALUES ('Tahmid Miah', '440252525', 'tamz@outlook.com')
+VALUES ('Tamz Yagami', '66435245', 'tamzyag@outlook.com')
 """)
 customer_id = cursor.lastrowid
+
+cursor.execute("SELECT * FROM Customer")
+customers = cursor.fetchall()
+for customer in customers:
+    print(customer)
 
 cursor.execute("""
 INSERT INTO Policy (customer_id, premium_amount, coverage_details)
@@ -67,11 +72,23 @@ VALUES (?, ?, ?)
 """, (customer_id, 169.69, 'Comprehensive auto insurance'))
 policy_id = cursor.lastrowid
 
+cursor.execute("SELECT * FROM Policy")
+policies = cursor.fetchall()
+print("\nPolicies:")
+for policy in policies:
+    print(policy)
+
 cursor.execute("""
 INSERT INTO Claim (policy_id, date, type, status, description)
 VALUES (?, '04/01/2025', 'Accident', 'Processing', 'Rear end collision on the highway')
 """, (policy_id,))
 claim_id = cursor.lastrowid
+
+cursor.execute("SELECT * FROM Claim")
+claims = cursor.fetchall()
+print("\nClaims:")
+for claim in claims:
+    print(claim)
 
 cursor.execute("""
 INSERT INTO Incident (claim_id, date, location, report)
@@ -82,6 +99,7 @@ cursor.execute("""
 INSERT INTO Payment (claim_id, amount, date)
 VALUES (?, 120.50, '04/02/2025')
 """, (claim_id,))
+
 
 conn.commit()
 conn.close()
